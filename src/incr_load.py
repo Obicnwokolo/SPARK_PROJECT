@@ -14,4 +14,4 @@ record_count = more_data.count()
 
 more_data.write.mode("append").saveAsTable("bigdata_nov_2024.obi_shopping_trend")
 
-print(f"Number of new records: {record_count}")
+print("New records successfully added")
