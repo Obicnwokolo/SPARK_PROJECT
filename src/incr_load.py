@@ -10,8 +10,8 @@ query = 'SELECT * FROM obi_shopping_trend WHERE customer_id >' + str(max_cust_id
 
 more_data = spark.read.format("jdbc").option("url", "jdbc:postgresql://18.132.73.146:5432/testdb").option("driver", "org.postgresql.Driver").option("user", "consultants").option("password", "WelcomeItc@2022").option("query", query).load()
 
-new_records = count(more_data)
+record_count = more_data.count()
 
 more_data.write.mode("append").saveAsTable("bigdata_nov_2024.obi_shopping_trend")
 
-print(f"{new_records} new records successfully Loaded:" )
+print(f"{record_count} new records successfully added")
